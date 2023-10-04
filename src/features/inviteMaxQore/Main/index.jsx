@@ -113,57 +113,27 @@ export const Main = () => {
     return number.add(onePercent.mul(percent));
   };
 
-  const registration = async () => {
-    let result = {};
-    try {
-    const contract = await getContract(CONTRACT_NAMES.ROUTER);
-            const priceWithCommission = (MAXQORE_PROGRAM_PRICES[1] + 0.003).toFixed(3)
-      
-            let gas = null;
-            try {
-              gas = await contract.estimateGas.maxQoreRegistration({
-                value: toWei(priceWithCommission),
-              });
-            } catch (e) {
-              //
-            }
-
-            result = await contract.maxQoreRegistration({
-              value: toWei(priceWithCommission),
-              gasLimit: parseInt(gas) ? increaseByPercent(gas) : BigNumber.from(2000000),
-            });
-
-      setNextLevel(2);
-
-      return result;
-    } catch (e) {
-      console.log(e);
-      setNextLevel(1);
-    }
-  }
-
   // const registration = async () => {
   //   let result = {};
-  //   setNextLevel(2);
   //   try {
-  //   const contract = await getContract(CONTRACT_NAMES.MAXQORE);
-  //           const priceWithCommission = MAXQORE_PROGRAM_PRICES[1].toFixed(6)
+  //   const contract = await getContract(CONTRACT_NAMES.ROUTER);
+  //           const priceWithCommission = (MAXQORE_PROGRAM_PRICES[1] + 0.003).toFixed(3)
       
   //           let gas = null;
   //           try {
-  //             gas = await contract.estimateGas.registrationExt({
+  //             gas = await contract.estimateGas.maxQoreRegistration({
   //               value: toWei(priceWithCommission),
   //             });
   //           } catch (e) {
   //             //
   //           }
 
-  //           result = await contract.registrationExt({
+  //           result = await contract.maxQoreRegistration({
   //             value: toWei(priceWithCommission),
   //             gasLimit: parseInt(gas) ? increaseByPercent(gas) : BigNumber.from(2000000),
   //           });
 
-   
+  //     setNextLevel(2);
 
   //     return result;
   //   } catch (e) {
@@ -172,68 +142,62 @@ export const Main = () => {
   //   }
   // }
 
-  const upgrade = async (level) => {
-    const price = (MAXQORE_PROGRAM_PRICES[level] + 0.003).toFixed(3);
+  const registration = async () => {
     let result = {};
+    setNextLevel(2);
     try {
-      const routeContract = await getContract(CONTRACT_NAMES.ROUTER);
-      const value = toWei(price);
+    const contract = await getContract(CONTRACT_NAMES.MAXQORE);
+            const priceWithCommission = MAXQORE_PROGRAM_PRICES[1].toFixed(3)
+      
+            let gas = null;
+            try {
+              gas = await contract.estimateGas.registrationExt({
+                value: toWei(priceWithCommission),
+              });
+            } catch (e) {
+              //
+            }
 
-      let gas = null;
-      try {
-        gas = await routeContract.estimateGas.maxQoreUpgrades([level], {
-          value,
-        });
-      } catch (e) {
-        //
-      }
+            result = await contract.registrationExt({
+              value: toWei(priceWithCommission),
+              gasLimit: parseInt(gas) ? increaseByPercent(gas) : BigNumber.from(2000000),
+            });
 
-      result = await routeContract.maxQoreUpgrades([level], {
-        value,
-        gasLimit: parseInt(gas) ? increaseByPercent(gas) : BigNumber.from(2000000),
-      });
-
-      if (nextLevel < 15) {
-        setNextLevel(prev => prev + 1);
-      } else {
-        setNextLevel(16);
-      }
+   
 
       return result;
     } catch (e) {
       console.log(e);
-      
+      setNextLevel(1);
     }
   }
 
-
   // const upgrade = async (level) => {
-  //   const price = MAXQORE_PROGRAM_PRICES[level].toFixed(6);
+  //   const price = (MAXQORE_PROGRAM_PRICES[level] + 0.003).toFixed(3);
   //   let result = {};
-  //   if (nextLevel < 15) {
-  //     setNextLevel(prev => prev + 1);
-  //   } else {
-  //     setNextLevel(16);
-  //   }
   //   try {
-  //     const routeContract = await getContract(CONTRACT_NAMES.MAXQORE);
+  //     const routeContract = await getContract(CONTRACT_NAMES.ROUTER);
   //     const value = toWei(price);
 
   //     let gas = null;
   //     try {
-  //       gas = await routeContract.estimateGas.buyNewLevel([level], {
+  //       gas = await routeContract.estimateGas.maxQoreUpgrades([level], {
   //         value,
   //       });
   //     } catch (e) {
   //       //
   //     }
 
-  //     result = await routeContract.buyNewLevel([level], {
+  //     result = await routeContract.maxQoreUpgrades([level], {
   //       value,
   //       gasLimit: parseInt(gas) ? increaseByPercent(gas) : BigNumber.from(2000000),
   //     });
 
-      
+  //     if (nextLevel < 15) {
+  //       setNextLevel(prev => prev + 1);
+  //     } else {
+  //       setNextLevel(16);
+  //     }
 
   //     return result;
   //   } catch (e) {
@@ -241,6 +205,42 @@ export const Main = () => {
       
   //   }
   // }
+
+
+  const upgrade = async (level) => {
+    const price = MAXQORE_PROGRAM_PRICES[level].toFixed(3);
+    let result = {};
+    if (nextLevel < 15) {
+      setNextLevel(prev => prev + 1);
+    } else {
+      setNextLevel(16);
+    }
+    try {
+      const routeContract = await getContract(CONTRACT_NAMES.MAXQORE);
+      const value = toWei(price);
+
+      let gas = null;
+      try {
+        gas = await routeContract.estimateGas.buyNewLevel([level], {
+          value,
+        });
+      } catch (e) {
+        //
+      }
+
+      result = await routeContract.buyNewLevel([level], {
+        value,
+        gasLimit: parseInt(gas) ? increaseByPercent(gas) : BigNumber.from(2000000),
+      });
+
+      
+
+      return result;
+    } catch (e) {
+      console.log(e);
+      
+    }
+  }
 
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
     const finalMinutes = minutes < 10 ? '0' + minutes : minutes;
