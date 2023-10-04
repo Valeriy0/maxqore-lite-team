@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;1,100;1,200&family=Urbanist:wght@100&display=swap');
+@import url('https://fonts.cdnfonts.com/css/open-sans');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap');
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+       
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
+.maxQore_title_gradient {
+	background: linear-gradient(180deg, #C9FFB6 0%, rgba(0, 255, 102, 0.3) 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-box-decoration-break: clone;
+}
+
+
+.maxQore_main_button {
+	background: linear-gradient(180deg, #2DD43E 0%, #3F9147 100%);
+}
+
+.maxQore_main_button_shadow {
+	box-shadow: 0px 0px 19px 0px #55FF85B2;
+}
+
+.maxQore_title_gradient {
+	background: linear-gradient(180deg, #C9FFB6 0%, rgba(0, 255, 102, 0.3) 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-box-decoration-break: clone;
+}
+
+.maxQore_border_color {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(45, 212, 62, 0.2) 100%);
+}
+
+.maxQore_shadow {
+	box-shadow: 0px 50px 190px -100px #00000066;
+}
+
+.maxQore_button_bg {
+	background: linear-gradient(0deg, rgba(35, 35, 35, 0.1), rgba(35, 35, 35, 0.1));
+}
+
+.maxQore_levels_bg {
+	background: linear-gradient(180deg, rgba(58, 134, 176, 0.18) 0%, rgba(58, 134, 176, 0.03) 100%),
+	linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(55, 207, 255, 0.2) 100%);
+}
+
+.maxQore_features_shadow_cycle {
+		box-shadow: 0px -2.037052631378174px 2.546315908432007px 0px #28CBD733 inset; box-shadow: 0px 0px 45.83367919921875px 0px #28CBD733;
+   	} 
+.maxQore_features_shadow_orange {
+		box-shadow: 0px -2.037053108215332px 2.546315908432007px 0px #FDC63733 inset; box-shadow: 0px 0px 45.83368682861328px 0px #FDC63733;
+	} 
+.maxQore_features_shadow_green {
+		box-shadow: 0px -2.037052869796753px 2.546316146850586px 0px #43E32933 inset; box-shadow: 0px 0px 45.83368682861328px 0px #43E32933;
+	} 
+.maxQore_features_shadow_blue {
+		box-shadow: 0px -2.037052869796753px 2.546316146850586px 0px #13AAFE33 inset; box-shadow: 0px 0px 45.83368682861328px 0px #13AAFE33;
+	}
+.maxQore_features_shadow_red {
+		box-shadow: 0px -2.037052869796753px 2.546316146850586px 0px #F5254A33 inset; box-shadow: 0px 0px 45.83368682861328px 0px #F5254A33;
+	}
+.maxQore_features_shadow_spillover{
+		box-shadow: 0px -2.037052631378174px 2.546315908432007px 0px #32F19633 inset; box-shadow: 0px 0px 45.83367919921875px 0px #32F19633;
+	}
+
+.maxQore_features_bg_cycle {
+      background: linear-gradient(0deg, rgba(35, 35, 35, 0.1), rgba(35, 35, 35, 0.1)), linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(40, 203, 215, 0.2) 100%);
+       } 
+.maxQore_features_bg_orange {
+      background: linear-gradient(0deg, rgba(35, 35, 35, 0.1), rgba(35, 35, 35, 0.1)), linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(253, 198, 55, 0.2) 100%);
+    } 
+.maxQore_features_bg_green {
+      background: linear-gradient(0deg, rgba(35, 35, 35, 0.1), rgba(35, 35, 35, 0.1)), linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(42, 226, 93, 0.2) 100%);
+    } 
+.maxQore_features_bg_blue {
+      background: linear-gradient(0deg, rgba(35, 35, 35, 0.1), rgba(35, 35, 35, 0.1)), linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(19, 170, 254, 0.2) 100%);
+    }
+.maxQore_features_bg_red {
+      background: linear-gradient(0deg, rgba(35, 35, 35, 0.1), rgba(35, 35, 35, 0.1)), linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(245, 37, 74, 0.2) 100%);
+    }
+.maxQore_features_bg_spillover{
+      background: linear-gradient(0deg, rgba(35, 35, 35, 0.1), rgba(35, 35, 35, 0.1)), linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(50, 241, 150, 0.2) 100%);
+  
+    }
+
+  
